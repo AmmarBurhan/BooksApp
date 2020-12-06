@@ -1,0 +1,17 @@
+
+<form [formGroup]="contactUsForm" (ngSubmit)="onSubmit()">
+  <div class="form-group">
+    <label for="inputEmail">Email address</label>
+    <input type="email" class="form-control" id="inputEmail" aria-describedby="emailHelp" formControlName="email">
+    
+  </div>
+  <div class="form-group">
+    <label for="inputName">Your Name</label>
+    <input type="text" class="form-control" id="inputName" formControlName="name">
+  </div>
+  <div class="form-group">
+    <label for="inputMessage">Message</label>
+    <textarea id="inputMessage" class="form-control" formControlName="message"></textarea>
+  </div>
+  <button type="submit" class="btn btn-primary">Send</button>
+  </form>

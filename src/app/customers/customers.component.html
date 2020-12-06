@@ -1,0 +1,18 @@
+<table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">Name</th>
+        <th scope="col">Email</th>
+        <th scope="col">Message</th>
+        <th scope="col">Date</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let customer of customersList">
+        <td>{{customer.name}}</td>
+        <td>{{customer.email}}</td>
+        <td>{{customer.message}}</td>
+        <td>{{customer.contactDate.toString().substring(0,10)}}</td>
+      </tr>
+    </tbody>
+  </table>

@@ -1,0 +1,32 @@
+<div class="container">
+    <div class="row align-items-center justify-content-center">
+        <div class="col-sm">
+            <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+                <div class="carousel-inner">
+                  <div class="carousel-item active">
+                    <img src="{{book.imageURL+book.image}}" class="d-block w-100" alt="{{book.title}}">
+                  </div>
+                  <div *ngFor="let image of book.imgGlry" class="carousel-item">
+                    <img src="{{book.imageURL+image}}" class="d-block w-100" alt="{{book.title}}">
+                  </div>
+                  
+                </div>
+                <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                  <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                  <span class="sr-only">Next</span>
+                </a>
+              </div>
+        </div>
+         <div class="col-sm" >
+             <p class="h2">{{book.title}}</p>
+            <p class="h3">${{book.price}}</p>
+            <p class="h4">By: {{book.author}}</p> 
+            <button (click)="addItemToCart()" type="button" class="btn btn-primary">Add to Cart</button>
+        </div> 
+    </div>
+
+</div>

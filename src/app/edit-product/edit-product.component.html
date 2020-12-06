@@ -1,0 +1,57 @@
+<div class="container">
+    <div class="row align-items-center justify-content-center">
+        <div class="col-sm">
+          <div class="mb-3">
+              <img src="{{book.imageURL+book.image}}"  alt="{{book.title}}" style="width: 250px; height: 250px;">
+          </div>
+          <ul class="list-group list-group-flush">
+            <li *ngFor= "let img of book.imgGlry" class="list-group-item">
+              <div>
+                  <img src="{{book.imageURL+img}}" class="card-img" alt="{{img}}" style="width: 100px; height: 100px;">
+              </div>
+              <div class="card-body">
+                  <button (click)="appendImagesToDel(img)" type="button" class="btn btn-sm btn-outline-danger">Delete</button>
+              </div>
+            </li>
+          </ul> 
+        </div>
+        <div class="col-sm" >
+          <form [formGroup]="frmEditProduct" enctype="multipart/form-data" (ngSubmit)="onSubmit()">
+              <div class="form-row">
+                <div class="form-group col-md-6">
+                  <label for="bookTitle">Title</label>
+                  <input type="text" class="form-control" id="bookTitle" formControlName="title">
+                </div>
+                <div class="form-group col-md-4">
+                  <label for="bookAuthor">Author</label>
+                  <input type="text" class="form-control" id="bookAuthor" formControlName="author">
+                </div>
+                <div class="form-group col-md-2">
+                    <label for="bookPrice">Price</label>
+                    <input type="text" class="form-control" id="bookPrice" placeholder="$9.99" formControlName="price">
+                </div>
+                <div class="form-group col-md-2">
+                  <label >Categories</label>
+                  <select class="form-control" formControlName="category" style="width: auto;" [(ngModel)]="book.category">
+                    <option *ngFor="let category of bookService.categories" [ngValue]="category" >{{category}}</option>
+                  </select>
+                </div>  
+              </div>
+              
+              <p class="h4">Images</p>
+              <div class="form-row mb-2">
+                
+                <div class="form-group col-md-6">
+                  <label for="bookImage">Book Image</label>
+                  <input type="file" class="form-control" id="bookImage" name="bookImage" accept="image/*" (change)="selectFile($event)">
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="bookImageGallery">Book Image Gallery</label>
+                    <input type="file" class="form-control" id="bookImageGallery" name="bookImageGallery" multiple accept="image/*" (change)="selectFiles($event)">
+                </div>
+                <button type="submit" class="btn btn-primary btn-block" >Save</button>
+              </div>
+          </form>
+      </div> 
+    </div>
+</div>

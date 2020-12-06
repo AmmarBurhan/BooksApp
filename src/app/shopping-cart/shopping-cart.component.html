@@ -1,0 +1,52 @@
+<div class="container">
+    <div class="row ">
+        <div class="col">
+            <ul class="list-group list-group-flush">
+                <li *ngFor= "let book of cart.itemsList" class="list-group-item">
+                  <div  class="card">
+                    <div class="row no-gutters">
+                      <div class="col-md-4">
+                        <img src="{{book.imageURL+book.image}}" class="card-img" alt="{{book.title}}" style="height: 100%;">
+                      </div>
+                      <div class="col-md-8">
+                        <div class="card-body">
+                          <div class="card text-right" >
+                            <div class="card-body">
+                              <h5 class="card-title">{{book.title}}</h5>
+                              <h6 class="card-title">{{book.price}}</h6>
+                              <p class="card-text">{{book.author}}</p>
+                              <span >
+                                <p>{{book.qty}}</p>
+                              </span>
+                              <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                                <label class="btn btn-outline-info ">
+                                  <input (click)="increase(book.index)" type="radio" name="options" id="option1" checked> +
+                                </label>
+                                <label class="btn btn-outline-info">
+                                  <input (click)="decrease(book.index)" type="radio" name="options" id="option2"> -
+                                </label>
+                                <label class="btn btn-outline-info">
+                                  <input (click)="delete(book.index)" type="radio" name="options" id="option3"> x
+                                </label>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  </li>
+              </ul>
+        </div>
+        <div class="col">
+            <div class="card" >
+                <div class="card-body">
+                  <h5 class="card-title">Shopping cart totals</h5>
+                  <h6 class="card-subtitle mb-2 text-muted">{{cartTotals}}</h6>
+                  <p class="card-text">Delivery times may be effected in high seasons!</p>
+                  <button (click)="checkOut()" type="button" class="btn btn-primary btn-block">Proceed to Check Out</button>
+                </div>
+              </div>
+        </div>
+    </div>
+</div>

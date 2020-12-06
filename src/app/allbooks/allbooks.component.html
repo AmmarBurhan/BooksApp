@@ -1,0 +1,16 @@
+<div class="row align-items-center justify-content-center">
+      
+    <div *ngFor="let book of books" class="col-sm-6 col-md-3 mb-2">
+      <div class="card" >
+        <a routerLink="/book/{{book._id}}"   rel="noopener noreferrer">
+          <img src={{book.imageURL+book.image}} class="card-img-top" alt="{{book.title}}" style="height: 200px;">
+        </a>
+        <div class="card-body">
+          <h5 class="card-title">{{book.price}}</h5>
+          <!-- <h6 class="card-subtitle mb-2 text-muted">{{book.bookCategory}}</h6> -->
+          <p class="card-text">{{book.title}}</p>
+          <a (click)="addItemToCart(book)" class="btn btn-primary">Add to Cart</a>
+        </div>
+      </div>
+    </div>
+  </div><!--row-->
